@@ -38,9 +38,7 @@
         <a href="index.php" class="btn btn-warning">Return to results</a> <br>
 
     <?php
-
         validateUpdate();
-        
     
     ?>
 
