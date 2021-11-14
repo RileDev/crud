@@ -28,19 +28,38 @@
                 <p>Phone number: <?="{$row["phone_number"]}"?></p>
             </div>
             <div class="col-md-3">
-            <a href='delete.php?id=<?="{$row['id']}"?>'><button class="btn btn-danger my-5">Delete user</button></a>
+            <button type="button" class="btn btn-danger  my-5" data-bs-toggle="modal" data-bs-target="#warningModal" data-id="<?="{$row['id']}"?>" onclick="showModal(this);">Delete user</button>
             </div>
             <div class="col-md-3">
             <a href='update.php?id=<?="{$row['id']}"?>'><button class="btn btn-primary my-5">Update user</button></a> <br>
             </div>
         </div>
 
-        <?php } ?>
         
-
+        <?php } ?>
     </div>
 
+    <!-- BS Modal -->
+    <div class="modal fade" id="warningModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">WARNING!!!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>With this action will delete user!</p> 
+                <p>You can't revert changes (unless if you're RileDev :D)</p> 
+            </div>
+            <div class="modal-footer">
+                
+            </div>
+            </div>
+        </div>
+        </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    
+    <script src="./js/app.js"></script>
+
 </body>
 </html>
