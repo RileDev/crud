@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2021 at 10:12 PM
+-- Generation Time: Nov 14, 2021 at 11:16 PM
 -- Server version: 8.0.26
 -- PHP Version: 8.0.8
 
@@ -45,7 +45,10 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `phone_number`, `
 (2, 'Peter', 'Parker', 'peter.parker@mail.ru', '+38169654321', 0),
 (3, 'Luka', 'Ristic', 'rileristic115@gmail.com', '555-333', 1),
 (4, 'Nikola', 'Tesla', 'ntesla@mail.rs', '+38169555444', 0),
-(5, 'Elon', 'Musk', 'elon@tesla.com', 'doge coin goes ', 0);
+(5, 'Elon', 'Musk', 'elon@tesla.rs', '+3816912465', 0),
+(6, 'Pera', 'P', 'pera.perovic@mail.nekitamo', '5416556156', 1),
+(7, 'Rile', 'Rikic', 'rileristic5@mail.com', '+381564564', 0),
+(8, 'first_name', 'last_name', 'email@mail.ru', '565454564412', 1);
 
 --
 -- Indexes for dumped tables
@@ -65,7 +68,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

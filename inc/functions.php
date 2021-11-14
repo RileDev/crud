@@ -90,7 +90,54 @@
         }
         
     }
+    function validateUpdate(){
+        $errors = [];
 
+        if($_SERVER['REQUEST_METHOD'] == "POST"){
+            $fname = clean($_POST['fname']);
+            $lname = clean($_POST['lname']);
+            $email = clean($_POST['email']);
+            $phone_num = clean($_POST['phone']);
+
+            if(empty($fname) || empty($lname)){
+                $errors[] = "Name must contain any character";
+            }
+
+            if(empty($phone_num)){
+                $errors[] = "Phone must contain any character";
+            }
+
+            if(empty($email)){
+                $errors[] = "Email must contain any character";
+            }
+
+            if(strlen($fname) < 3 || strlen($lname) < 3){
+                $errors[] = "Name can't be less than 3 characters";
+            }
+            if(strlen($phone_num) < 10){
+                $errors[] = "Phone number can't be less than 10 characters";
+            }
+
+            if(strlen($email) < 5){
+                $errors[] = "Email can't be less than 5 characters";
+            }
+
+            if(!filter_var($email, FILTER_SANITIZE_EMAIL)){
+                $errors[] = "Invalid mail format";
+            }
+            
+            if(!empty($errors)){
+                foreach($errors as $error){
+                    echo "<p class='text-danger text-uppercase'>$error</p>";
+                }
+                return false;
+            }else{
+                updateUser($fname, $lname, $phone_num, $email);
+            }
+        }
+        
+    }
+    
     function insertUser($fname, $lname, $phone_num, $email){
         $fname = escape($fname);
         $lname = escape($lname);
@@ -106,3 +153,23 @@
         $result = query($query);
         echo "Query has been successfully executed";
     }
+
+
+    function updateUser($fname, $lname, $phone_num, $email){
+        $fname = escape($fname);
+        $lname = escape($lname);
+        $phone_num = escape($phone_num);
+        $email = escape($email);
+
+        $fname = filter_var($fname, FILTER_SANITIZE_STRING);
+        $lname = filter_var($lname, FILTER_SANITIZE_STRING);
+        $phone_num = filter_var($phone_num, FILTER_SANITIZE_STRING);
+        $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+
+        $query = "UPDATE `users` SET `first_name`='$fname',`last_name`='$lname',`email`='$email',`phone_number`='$phone_num' WHERE id = {$_GET["id"]}";
+        $result = query($query);
+        echo "Query has been successfully executed";
+    }
+    
+    
+    

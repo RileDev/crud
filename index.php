@@ -15,7 +15,8 @@
         echo "<p>Last name: {$row["last_name"]}</p>";
         echo "<p>E-mail: {$row["email"]}</p>";
         echo "<p>Phone number: {$row["phone_number"]}</p>";
-        echo "<a href='delete.php?id={$row['id']}'><button>Delete user</button></a> <br>";
+        echo "<a href='delete.php?id={$row['id']}'><button>Delete user</button></a> <br> <br>";
+        echo "<a href='update.php?id={$row['id']}'><button>Update user</button></a> <br>";
         echo "--------<br>";
     }
 
